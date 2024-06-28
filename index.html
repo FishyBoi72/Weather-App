@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <section>
+            <form id="zipForm">
+                <label for="zipCode">Enter Zip Code:</label>
+                <input type="text" id="zipCode" name="zipCode" required>
+                <button type="submit">Get Weather</button>
+            </form>
+        </section>
+        <section id="weatherData" class="hidden">
+            <h2>Weather Information</h2>
+            <p><strong>Current Date:</strong> <span id="currentDate"></span></p>
+            <p><strong>City:</strong> <span id="city"></span>, <span id="state"></span></p>
+            <p><strong>Current Temperature:</strong> <span id="currentTemp"></span> °F</p>
+            <p><strong>Current Conditions:</strong> <span id="currentConditions"></span></p>
+            <p><strong>Temperature High/Low:</strong> <span id="tempHiLo"></span> °F</p>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
