@@ -12,7 +12,7 @@
         <h1 class="text-center my-5">Fish Weather Report</h1>
         <div class="row d-flex justify-content-center py-5">
             <div class="col-md-8 col-lg-6 col-xl-5">
-                <div class="card text-body" style="border-radius: 35px;">
+                <div id="weatherPanel" class="card text-white" style="background-color: #8fc5ff; border-radius: 35px;">
                     <div class="card-body p-4">
                         <form id="zipForm" class="mb-4">
                             <label for="zipCode">Enter Zip Code:</label>
@@ -30,7 +30,7 @@
                             </div>
                             <div class="d-flex flex-column text-center mt-5 mb-4">
                                 <h6 class="display-4 mb-0 font-weight-bold"><span id="currentTemp"></span> °F</h6>
-                                <span class="small" style="color: #868B94" id="currentConditions"></span>
+                                <span class="small" style="color: #ffffff;" id="currentConditions"></span>
                             </div>
                             <div class="d-flex flex-column text-center mt-3">
                                 <span id="state"></span>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="d-flex align-items-center mt-3">
                                 <div class="flex-grow-1" style="font-size: 1rem; text-align: center;">
-                                    <div><i class="fas fa-temperature-high fa-fw" style="color: #868B94;"></i> <span id="tempHiLo"></span></div>
+                                    <div><i class="fas fa-temperature-high fa-fw"></i> <span id="tempHiLo"></span></div>
                                 </div>
                             </div>
                         </div>
