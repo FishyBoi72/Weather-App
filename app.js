@@ -31,6 +31,9 @@ document.getElementById('zipForm').addEventListener('submit', function(e) {
                     document.getElementById('currentConditions').innerText = currentConditions;
                     document.getElementById('tempHiLo').innerText = tempHiLo;
 
+                    const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    document.getElementById('time').innerText = time;
+
                     document.getElementById('weatherData').classList.remove('hidden');
                 })
                 .catch(error => {
