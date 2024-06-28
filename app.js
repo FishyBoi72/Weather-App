@@ -2,12 +2,17 @@ document.getElementById('zipForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const zipCode = document.getElementById('zipCode').value;
     const apiKey = 'e71e04d4e636ef92b7a43fb0f32549c5';
-    const weatherApiUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&units=imperial&appid=${apiKey}`;
-    const zipApiUrl = `http://api.zippopotam.us/us/${zipCode}`;
+    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&units=imperial&appid=${apiKey}`;
+    const zipApiUrl = `https://api.zippopotam.us/us/${zipCode}`;
 
     // Fetch weather data
     fetch(weatherApiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Weather data fetch error');
+            }
+            return response.json();
+        })
         .then(weatherData => {
             if (weatherData.cod === '404') {
                 alert('City not found. Please enter a valid zip code.');
@@ -15,7 +20,12 @@ document.getElementById('zipForm').addEventListener('submit', function(e) {
             }
             // Fetch zip code data
             fetch(zipApiUrl)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Zip code data fetch error');
+                    }
+                    return response.json();
+                })
                 .then(zipData => {
                     const currentDate = new Date().toLocaleDateString();
                     const city = weatherData.name;
@@ -33,6 +43,8 @@ document.getElementById('zipForm').addEventListener('submit', function(e) {
 
                     const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                     document.getElementById('time').innerText = time;
+
+                    console.log('Current conditions:', currentConditions);
 
                     document.getElementById('weatherData').classList.remove('hidden');
                 })
